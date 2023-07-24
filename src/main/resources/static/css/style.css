@@ -1,0 +1,7 @@
+.A{
+  display:flex;
+  list-style-type:none;
+}
+li{
+  padding:10px;
+}

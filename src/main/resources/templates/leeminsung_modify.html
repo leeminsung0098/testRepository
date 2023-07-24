@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div >
+<h1>게시물 수정페이지</h1>
+    <form action="#" th:action="@{/leeminsung/modify/{id}(id=${question.id})}" th:object="${question}" method="post">
+        <input type="hidden" />
+        <div></div>
+        <div class="mb-3">
+            <label for="title" class="form-label">제목</label>
+            <input type="text" th:field="*{title}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">내용</label>
+            <textarea th:field="*{content}" class="form-control" rows="10"></textarea>
+        </div>
+        <input type="submit" value="저장하기" th:href="@{|/leeminsung/delete/${question.id}|}" >
+    </form>
+</div>
+</html>
+
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일시</th>
+        <th>조회수</th>
+        <th>추천수</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="question : ${questionlist}">
+        <td th:text="${question.id}"></td>
+        <td>
+            <a th:href="@{|/leeminsung/detail/${question.id}|}" th:text="${question.title}"></a>
+        </td>
+        <td th:text="${question.maker}"></td>
+        <td th:text="${question.date}"></td>
+        <td th:text="${question.view}"></td>
+        <td th:text="${question.good}"></td>
+    </tr>
+    </tbody>
+</table>
+<hr>
+
+<a th:href="@{/leeminsung/create}" class="btn btn-primary">질문 등록하기</a>
+
+
+</body>
+</html>

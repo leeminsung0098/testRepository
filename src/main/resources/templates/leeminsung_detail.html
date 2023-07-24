@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${question.title}"></h1>
+<div>작성자:</div><div th:text="${question.maker}"></div>
+<div>작성날짜:</div><div th:text="${question.date}"></div>
+<div>조회수:</div><div th:text="${question.view}"></div>
+<hr>
+<div th:text="${question.content}"></div>
+
+
+<hr>
+<a th:href="@{|/leeminsung/modify/${question.id}|}" th:text="수정"></a>
+<a href="javascript:void(0);" th:data-uri="@{|/leeminsung/delete/${question.id}|}"
+   class="delete btn btn-sm btn-outline-secondary"
+   th:text="삭제"></a>
+<script layout:fragment="script" type='text/javascript'>
+const delete_elements = document.getElementsByClassName("delete");
+Array.from(delete_elements).forEach(function(element) {
+    element.addEventListener('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = this.dataset.uri;
+        };
+    });
+});
+</script>
+
+
+
+
+
+
+</body>
+</html>
